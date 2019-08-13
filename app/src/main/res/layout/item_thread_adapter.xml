@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp"
+        android:layout_height="wrap_content" android:id="@+id/card_container" app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true" app:contentPadding="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/language_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" tools:text="English "
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+        />
+
+        <TextView
+                android:id="@+id/level_text_view"
+                android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" tools:text="Elementary"
+                app:layout_constraintTop_toTopOf="@+id/language_text_view"
+                app:layout_constraintBottom_toBottomOf="@+id/language_text_view"
+                app:layout_constraintStart_toEndOf="@+id/language_text_view" android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"/>
+
+        <TextView
+                android:text="Join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/join_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                style="@style/ButtonPadding"
+                android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+
+        <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView2"
+                android:layout_marginTop="24dp"
+                layout="@layout/user_item"
+                app:layout_constraintTop_toBottomOf="@+id/language_text_view"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_container"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/language_text_view"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+                android:text="Information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/info_view"
+                style="@style/ButtonPadding"
+                app:layout_constraintTop_toTopOf="@+id/join_button"
+                app:layout_constraintBottom_toBottomOf="@+id/join_button" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@+id/join_button"/>
+
+        <TextView
+                android:text="Free seats: 3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/free_seats_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/language_text_view"
+                app:layout_constraintBottom_toBottomOf="@+id/language_text_view"
+                android:layout_marginTop="4dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
