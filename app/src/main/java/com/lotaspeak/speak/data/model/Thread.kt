@@ -12,7 +12,7 @@ class Thread : ThreadsAdapter.ThreadItemAdapter, Serializable {
 
     var date: Date? = null
 
-    var user: User? = null
+    var author: User? = null
 
     var level: Level? = null
 
@@ -21,7 +21,5 @@ class Thread : ThreadsAdapter.ThreadItemAdapter, Serializable {
     var numberSeats: String? = null
 
     var members: List<User>? = null
-
-    var author: User? = null
 
 }

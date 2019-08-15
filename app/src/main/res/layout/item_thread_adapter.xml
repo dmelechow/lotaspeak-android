@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         app:cardElevation="4dp"
         app:cardCornerRadius="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
         android:layout_height="wrap_content" android:id="@+id/card_container" app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="true" app:contentPadding="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -21,16 +23,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" tools:text="English "
                 app:layout_constraintTop_toTopOf="parent"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-        />
+                app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
                 android:id="@+id/level_text_view"
                 android:layout_width="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_height="wrap_content" tools:text="Elementary"
                 app:layout_constraintTop_toTopOf="@+id/language_text_view"
                 app:layout_constraintBottom_toBottomOf="@+id/language_text_view"
@@ -43,12 +44,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/join_button"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 style="@style/ButtonPadding"
-                android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+                android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
 
         <include
                 android:layout_width="wrap_content"
@@ -69,20 +70,23 @@
                 app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-                android:text="Information"
+                android:text="@string/info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/info_view"
                 style="@style/ButtonPadding"
+                android:textSize="14sp"
                 app:layout_constraintTop_toTopOf="@+id/join_button"
-                app:layout_constraintBottom_toBottomOf="@+id/join_button" android:layout_marginStart="16dp"
-                app:layout_constraintStart_toEndOf="@+id/join_button"/>
+                app:layout_constraintBottom_toBottomOf="@+id/join_button"
+                app:layout_constraintVertical_bias="1.0" app:layout_constraintEnd_toStartOf="@+id/join_button"
+                android:layout_marginEnd="8dp"/>
 
         <TextView
                 android:text="Free seats: 3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/free_seats_view"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/language_text_view"
                 app:layout_constraintBottom_toBottomOf="@+id/language_text_view"

@@ -8,7 +8,11 @@ import com.lotaspeak.speak.view.base.BaseView
 interface ThreadsContract {
 
     interface View : BaseView {
-        fun showThreads(threadsData: ThreadsData)
+        fun showThreadsState(threadsData: ThreadsData)
+
+        fun showEmptyState()
+
+        fun showErrorState(message: String?)
     }
 
     abstract class Presenter : BasePresenter<View>() {

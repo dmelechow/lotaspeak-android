@@ -15,7 +15,6 @@ private const val ITEM_EMPTY = 0
 private const val ITEM_THREAD = 1
 
 class ThreadsAdapter(
-        private val listener: View.OnClickListener? = null,
         private val actionsAdapter: ThreadAdapterActions
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

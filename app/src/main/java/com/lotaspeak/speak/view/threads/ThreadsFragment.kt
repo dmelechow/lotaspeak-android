@@ -16,10 +16,11 @@ import com.lotaspeak.speak.di.threads.DaggerThreadsComponent
 import com.lotaspeak.speak.di.threads.ThreadsModule
 import com.lotaspeak.speak.utils.RecyclerAdapterActions
 import com.lotaspeak.speak.view.base.viewholder.ThreadAdapterActions
+import com.lotaspeak.speak.view.thread.ThreadActivity
 import javax.inject.Inject
 
 
-class ThreadsFragment : Fragment(), ThreadsContract.View, View.OnClickListener, ThreadAdapterActions {
+class ThreadsFragment : Fragment(), ThreadsContract.View, ThreadAdapterActions {
 
     @Inject
     lateinit var presenter: ThreadsContract.Presenter
@@ -57,17 +58,25 @@ class ThreadsFragment : Fragment(), ThreadsContract.View, View.OnClickListener, 
         super.onDestroyView()
     }
 
-    override fun showThreads(threadsData: ThreadsData) {
+    override fun showThreadsState(threadsData: ThreadsData) {
+        loaderView.visibility = View.GONE
         if(threadsData.threads != null) {
             adapter.notifyItems(threadsData.threads!!)
         }
     }
 
-    override fun onClick(v: View?) {
+    override fun showErrorState(message: String?) {
+        loaderView.visibility = View.GONE
+        recycler_view.visibility = View.GONE
+    }
+
+    override fun showEmptyState() {
+        loaderView.visibility = View.GONE
+        recycler_view.visibility = View.GONE
     }
 
     private fun initAdapter() {
-        adapter = ThreadsAdapter(this, this)
+        adapter = ThreadsAdapter(this)
         layoutManager = LinearLayoutManager(activity?.baseContext)
         recycler_view.layoutManager = layoutManager
         recycler_view.adapter = adapter
@@ -78,7 +87,7 @@ class ThreadsFragment : Fragment(), ThreadsContract.View, View.OnClickListener, 
     }
 
     override fun infoThread(thread: Thread) {
-        Toast.makeText(activity, "You'll see an info in next version", Toast.LENGTH_SHORT).show()
+        activity?.let { ThreadActivity.startActivity(it, thread) }
     }
 
     companion object {

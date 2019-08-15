@@ -2,8 +2,9 @@ package com.lotaspeak.speak.data.model
 
 import com.lotaspeak.speak.data.model.base.Language
 import com.lotaspeak.speak.data.model.base.Level
+import java.io.Serializable
 
-class User {
+class User : Serializable{
     var hobby: String? = null
 
     var googleID: String? = null
@@ -19,8 +20,6 @@ class User {
     var image: String? = null
 
     var bio: String? = null
-
-//    var languages: List<Languages>? = null
 
 }
 

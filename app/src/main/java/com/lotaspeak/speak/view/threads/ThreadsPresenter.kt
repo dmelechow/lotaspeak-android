@@ -18,14 +18,13 @@ class ThreadsPresenter(
                 .subscribe(
                     { result: BaseResponse<ThreadsData> ->
                         if (result.data != null) {
-                            view?.showThreads(result.data!!)
+                            view?.showThreadsState(result.data!!)
                         } else {
-
+                            view?.showEmptyState()
                         }
                     },
                     {
-                        var i = 0
-                        i++
+                        view?.showErrorState(it.message)
                     }
                 )
         )

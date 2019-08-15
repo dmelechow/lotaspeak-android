@@ -1,6 +1,8 @@
 package com.lotaspeak.speak.data.model.base
 
-class Language {
+import java.io.Serializable
+
+class Language: Serializable {
 
     var title: String? = null
 
