@@ -9,7 +9,7 @@ import com.lotaspeak.speak.data.repository.ThreadsData
 
 interface RestApi {
 
-    @GET("thread")
+    @GET("thread/all")
     fun fetchTreads(): Single<BaseResponse<ThreadsData>>
 
     @GET("thread")

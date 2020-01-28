@@ -17,7 +17,8 @@ class ThreadsPresenter(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     { result: BaseResponse<ThreadsData> ->
-                        if (result.data != null) {
+                        if (result.data != null && result.error == null) {
+                            result.data?.threads?.let { repository.setThreads(it) }
                             view?.showThreadsState(result.data!!)
                         } else {
                             view?.showEmptyState()

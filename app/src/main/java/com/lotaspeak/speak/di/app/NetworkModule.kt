@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import javax.inject.Singleton
 
-private const val BASE_URL = "http://lotaspeak.herokuapp.com/"
+private const val BASE_URL = "http://lotaspeak.herokuapp.com/api/"
 
 @Module
 class NetworkModule(private val cacheSize: Long) {

@@ -47,6 +47,7 @@ class ThreadsAdapter(
         return when (items[position]) {
             is ThreadItemAdapter -> ITEM_THREAD
             else -> ITEM_EMPTY
+            // for inserting an extra items
         }
     }
 

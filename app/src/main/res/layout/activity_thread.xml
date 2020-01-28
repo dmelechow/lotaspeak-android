@@ -28,8 +28,8 @@
             app:layout_constraintStart_toEndOf="@+id/language_text_view" android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"/>
 
-    <TextView
-            android:text="Join"
+    <Button
+            android:text="@string/thread_join"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/join_button"
@@ -58,18 +58,6 @@
             android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@+id/language_text_view"
             app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-            android:text="@string/info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/info_view"
-            style="@style/ButtonPadding"
-            android:textSize="14sp"
-            app:layout_constraintTop_toTopOf="@+id/join_button"
-            app:layout_constraintBottom_toBottomOf="@+id/join_button"
-            app:layout_constraintVertical_bias="1.0" app:layout_constraintEnd_toStartOf="@+id/join_button"
-            android:layout_marginEnd="8dp"/>
 
     <TextView
             android:text="Free seats: 3"

@@ -9,12 +9,18 @@
         android:clickable="true"
         android:focusable="true"
         android:background="?attr/selectableItemBackground"
-        android:layout_height="wrap_content" android:id="@+id/card_container" app:cardPreventCornerOverlap="false"
-        app:cardUseCompatPadding="true" app:contentPadding="4dp">
+        android:layout_height="wrap_content"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        android:clipChildren="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_container"
             android:orientation="vertical"
             android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -38,8 +44,8 @@
                 app:layout_constraintStart_toEndOf="@+id/language_text_view" android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"/>
 
-        <TextView
-                android:text="Join"
+        <Button
+                android:text="@string/thread_join"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/join_button"
@@ -70,19 +76,7 @@
                 app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-                android:text="@string/info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/info_view"
-                style="@style/ButtonPadding"
-                android:textSize="14sp"
-                app:layout_constraintTop_toTopOf="@+id/join_button"
-                app:layout_constraintBottom_toBottomOf="@+id/join_button"
-                app:layout_constraintVertical_bias="1.0" app:layout_constraintEnd_toStartOf="@+id/join_button"
-                android:layout_marginEnd="8dp"/>
-
-        <TextView
-                android:text="Free seats: 3"
+                android:text="@string/thread_free_seats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/free_seats_view"
@@ -91,6 +85,16 @@
                 app:layout_constraintTop_toTopOf="@+id/language_text_view"
                 app:layout_constraintBottom_toBottomOf="@+id/language_text_view"
                 android:layout_marginTop="4dp"/>
+
+        <TextView
+                android:id="@+id/empty_title_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/thread_empty_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

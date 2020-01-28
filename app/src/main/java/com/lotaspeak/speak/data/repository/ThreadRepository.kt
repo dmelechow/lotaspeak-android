@@ -10,11 +10,19 @@ class ThreadRepository(
     private val restApi: RestApi
 ): IThreadRepository {
 
+    var threadsItems: List<Thread>? = null
+
     override fun fetchThreads(): Single<BaseResponse<ThreadsData>> {
-        return restApi.fetchTreads()
+        return if(threadsItems == null) {
+            restApi.fetchTreads()
+        } else {
+            Single.just(BaseResponse(ThreadsData(threadsItems)))
+        }
+    }
+
+    override fun setThreads(threadsItems: List<Thread>) {
+        this.threadsItems = threadsItems
     }
 }
 
-class ThreadsData {
-    var threads: List<Thread>? = null
-}
+class ThreadsData(var threads: List<Thread>? = null)

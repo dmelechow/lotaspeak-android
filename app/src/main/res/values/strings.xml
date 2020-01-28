@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">lotaspeak</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="info">Info</string>
+
+
+    <string name="thread_join_notify">You\'ll join in next version</string>
+    <string name="thread_join">Join</string>
+    <string name="thread_empty_title">Thread is empty</string>
+    <string name="thread_free_seats">Free seats: %1$s</string>
+    <string name="thread_empty_state">There are no threads yet</string>
+    <string name="thread_error_state">Something goes wrong</string>
 </resources>

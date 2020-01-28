@@ -14,7 +14,6 @@ import com.lotaspeak.speak.data.model.Thread
 import com.lotaspeak.speak.data.repository.ThreadsData
 import com.lotaspeak.speak.di.threads.DaggerThreadsComponent
 import com.lotaspeak.speak.di.threads.ThreadsModule
-import com.lotaspeak.speak.utils.RecyclerAdapterActions
 import com.lotaspeak.speak.view.base.viewholder.ThreadAdapterActions
 import com.lotaspeak.speak.view.thread.ThreadActivity
 import javax.inject.Inject
@@ -46,10 +45,6 @@ class ThreadsFragment : Fragment(), ThreadsContract.View, ThreadAdapterActions {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-    }
-
-    override fun onStart() {
-        super.onStart()
         presenter.fetchThreads()
     }
 
@@ -68,11 +63,15 @@ class ThreadsFragment : Fragment(), ThreadsContract.View, ThreadAdapterActions {
     override fun showErrorState(message: String?) {
         loaderView.visibility = View.GONE
         recycler_view.visibility = View.GONE
+        alert_text_view.visibility = View.VISIBLE
+        alert_text_view.text = activity?.resources?.getString(R.string.thread_error_state)
     }
 
     override fun showEmptyState() {
         loaderView.visibility = View.GONE
         recycler_view.visibility = View.GONE
+        alert_text_view.visibility = View.VISIBLE
+        alert_text_view.text = activity?.resources?.getString(R.string.thread_empty_state)
     }
 
     private fun initAdapter() {
@@ -83,16 +82,15 @@ class ThreadsFragment : Fragment(), ThreadsContract.View, ThreadAdapterActions {
     }
 
     override fun joinThread(thread: Thread) {
-        Toast.makeText(activity, "You'll join in next version", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, activity?.getString(R.string.thread_join_notify), Toast.LENGTH_SHORT).show()
     }
 
-    override fun infoThread(thread: Thread) {
+    override fun onClickThread(thread: Thread) {
         activity?.let { ThreadActivity.startActivity(it, thread) }
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() =
-            ThreadsFragment()
+        fun newInstance() = ThreadsFragment()
     }
 }

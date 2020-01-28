@@ -15,11 +15,11 @@ class User : Serializable{
 
     var lastName: String? = null
 
-    var nickName: String? = null
-
     var image: String? = null
 
     var bio: String? = null
+
+    var username: String? = null
 
 }
 
